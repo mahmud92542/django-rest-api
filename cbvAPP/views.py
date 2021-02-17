@@ -9,29 +9,40 @@ from django.http import Http404
 
 from rest_framework import generics,mixins
 
-class StudentList(mixins.ListModelMixin,mixins.CreateModelMixin,generics.GenericAPIView):
+
+class StudentList(generics.ListCreateAPIView):
 	queryset = Student.objects.all()
 	serializer_class = StudentSerializer
 
-	def get(self,request):
-		return self.list(request)
-
-	def post(self,request):
-		return self.create(request)
-
-class StudentDetail(mixins.RetriveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin,generics.GenericAPIView):
-	queryset = Student.objects.all()
+class StudentDetail(generics.RetriveUpdateDestroyAPIView):
+	queryset= Student.objects.all()
 	serializer_class = StudentSerializer
 
 
-	def get(self,request,pk):
-		return self.retrive(request,pk)
+#mixins views
+# class StudentList(mixins.ListModelMixin,mixins.CreateModelMixin,generics.GenericAPIView):
+# 	queryset = Student.objects.all()
+# 	serializer_class = StudentSerializer
 
-	def put(self,request,pk):
-		return self.update(request,pk)
+# 	def get(self,request):
+# 		return self.list(request)
 
-	def delete(self,request):
-		return self.destroy(request,pk)
+# 	def post(self,request):
+# 		return self.create(request)
+
+# class StudentDetail(mixins.RetriveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin,generics.GenericAPIView):
+# 	queryset = Student.objects.all()
+# 	serializer_class = StudentSerializer
+
+
+# 	def get(self,request,pk):
+# 		return self.retrive(request,pk)
+
+# 	def put(self,request,pk):
+# 		return self.update(request,pk)
+
+# 	def delete(self,request):
+# 		return self.destroy(request,pk)
 
 
 
