@@ -35,19 +35,7 @@ class StudentDetail(mixins.RetriveModelMixin,mixins.UpdateModelMixin,mixins.Dest
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-# # Create your views here.
+# Class Based Views
 # class StudentList(APIView):
 
 # 	def get(self,request):
