@@ -21,3 +21,4 @@ urlpatterns = [
     path('',include('fbvApp.urls')),
     path('cbv/',include('cbvApp.urls')),
 ]
+
