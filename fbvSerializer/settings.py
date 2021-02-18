@@ -42,10 +42,16 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
-#pagination
+
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE':2
+    #global pagination
+    # 'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE':2
+
+    #global security
+    'DEFAULT_AUTHTICATION_CLASSES': ['rest_framework.authentication.BasicAuthentication'],
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated','rest_framework.permissions.DjangoModelPermissions']
+
 }
 
 MIDDLEWARE = [
