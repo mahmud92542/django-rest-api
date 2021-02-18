@@ -7,12 +7,34 @@ from rest_framework.views import APIView
 from django.http import Http404
 
 
-from rest_framework import generics,mixins
-from rest_framework import viewsets
+ from rest_framework import generics,mixins
+# from rest_framework import viewsets
 
-class StudentViewSet(viewsets.ModelViewSet):
-	queryset = Student.objects.all()
-	serializer_class = StudentSerializer
+
+
+class AuthorListView(generics.ListCreateAPIView):
+	queryset = Author.objects.all()
+	serializer_class = AuthorSerializer
+
+
+class AuthorDetailView(generics.RetriveUpdateDestroyAPIView):
+	queryset= Author.objects.all()
+	serializer_class = AuthorSerializer
+
+class BookListView(generics.RetriveUpdateDestroyAPIView):
+	queryset= Book.objects.all()
+	serializer_class = BookSerializer
+
+
+class BookDetailView(generics.RetriveUpdateDestroyAPIView):
+	queryset= Book.objects.all()
+	serializer_class = BookSerializer
+
+
+
+# class StudentViewSet(viewsets.ModelViewSet):
+# 	queryset = Student.objects.all()
+# 	serializer_class = StudentSerializer
 
 
 
