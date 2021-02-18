@@ -6,6 +6,7 @@ class StudentSerializer(serializers.ModelSerializer):
 		model = Student
 		fields = '__all__'
 
+#nested serializer 
 class BookSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Book
