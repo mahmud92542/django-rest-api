@@ -6,6 +6,8 @@ from rest_framework import status
 from rest_framework.views import APIView
 from django.http import Http404
 from rest_framework.pagination import PageNumberPagination, LimitOffSetPagination
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated,DjangoModelPermissions
 
  from rest_framework import generics,mixins
 # from rest_framework import viewsets
@@ -15,6 +17,10 @@ from rest_framework.pagination import PageNumberPagination, LimitOffSetPaginatio
 class AuthorListView(generics.ListCreateAPIView):
 	queryset = Author.objects.all()
 	serializer_class = AuthorSerializer
+
+# basics authentication
+	# authentication_classes = [BasicAuthentication]
+	# permission_classes = [IsAuthenticated,DjangoModelPermissions]
 
 
 class AuthorDetailView(generics.RetriveUpdateDestroyAPIView):
